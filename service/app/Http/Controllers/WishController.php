@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Wish;
 
 class WishController extends Controller
 {
@@ -16,6 +17,12 @@ class WishController extends Controller
 
     public function index()
     {
-        return "index";
+        $wishes = Wish::get();
+        return ['wishes' => $wishes];
+    }
+
+    public function show($id){
+        $wish = Wish::query()->findOrFail($id);
+        return ['wish' => $wish];
     }
 }

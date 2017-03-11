@@ -15,15 +15,5 @@ $app->get('/', function () use ($app){
     return $app->version();
 });
 
-/*
-$app->get('wish/{id}', function($id){
-    $wish = Wish::query()->findOrFail($id);
-    return ['wish' => $wish];
-});
-
-$app->post('/wish', function (){
-
-});
-*/
-
-$app->get('/wish','WishController@index');
+$app->get('/wish/','WishController@index');
+$app->get('/wish/{id}','WishController@show');
