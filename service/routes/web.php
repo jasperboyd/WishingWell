@@ -15,6 +15,11 @@ $app->get('/', function () use ($app) {
     return $app->version();
 });
 
+$app->get('/{id}', function($id) use ($app) {
+    $wish = Wish::query()->findOrFail($id);
+    return ['wish' => $wish];
+});
+
 $app->post('/wish', function () use ($app) {
 
 });
