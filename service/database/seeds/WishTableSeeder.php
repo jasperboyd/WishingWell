@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Quote;
+use App\Models\Wish;
 use Illuminate\Database\Seeder;
 
 class WishTableSeeder extends Seeder
