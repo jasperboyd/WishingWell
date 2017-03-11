@@ -11,15 +11,19 @@
 |
 */
 
-$app->get('/', function () use ($app) {
+$app->get('/', function () use ($app){
     return $app->version();
 });
 
-$app->get('/{id}', function($id) use ($app) {
+/*
+$app->get('wish/{id}', function($id){
     $wish = Wish::query()->findOrFail($id);
     return ['wish' => $wish];
 });
 
-$app->post('/wish', function () use ($app) {
+$app->post('/wish', function (){
 
 });
+*/
+
+$app->get('/wish','WishController@index');
