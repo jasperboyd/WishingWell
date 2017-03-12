@@ -29,4 +29,8 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     protected $hidden = [
         'password',
     ];
+
+    public function wishes(){
+        return $this->hasMany('App\Wish');
+    }
 }
