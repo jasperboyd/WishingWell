@@ -15,6 +15,15 @@ $app->get('/', function () use ($app){
     return $app->version();
 });
 
-$app->post('/register/','UserController@register');
-$app->get('/wish/','WishController@index');
+$app->post('/register/',
+           ['uses' => 'UserController@register',
+            'as' => 'register']
+          );
+
+$app->get('/wish/',
+          ['middleware' => 'auth',
+           'uses' => 'WishController@index',
+           'as' => 'wishes.index']
+          );
+
 $app->get('/wish/{id}','WishController@show');
