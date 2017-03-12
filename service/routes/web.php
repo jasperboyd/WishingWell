@@ -23,7 +23,7 @@ $app->post('/register/',
           );
 
 $app->get('/wish/',
-          ['middleware' => 'auth',
+          ['middleware' => 'auth:api',
            'uses' => 'WishController@index',
            'as' => 'wishes.index']
           );
