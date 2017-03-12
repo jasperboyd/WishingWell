@@ -14,6 +14,16 @@ class UserController extends Controller
     {
         //
     }
+ 
+    public function register(Request $request)
+    {
+
+	$user = new User; 
+	$user->email = $request->input('email'); 
+	$user->name = $request->input('name'); 
+
+	$user->save(); 
+    }
 
     public function index()
     {
