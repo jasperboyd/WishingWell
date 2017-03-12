@@ -1,7 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\User;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -18,12 +22,14 @@ class UserController extends Controller
     public function register(Request $request)
     {
 
-	$user = new User;
-	$user->email = $request->input('email');
-	$user->name = $request->input('name');
-	$user->password = Hash::make($request->input('password'));
+        $user = new User;
+        $user->email = $request->input('email');
+        $user->name = $request->input('name');
+        $user->password = Hash::make($request->input('password'));
 
-	$user->save();
+        $user->save();
+
+        return $user;
     }
 
     public function index()
