@@ -15,6 +15,8 @@ $app->get('/', function () use ($app){
     return $app->version();
 });
 
+$app->post('/auth/login', 'AuthController@postLogin');
+
 $app->post('/register/',
            ['uses' => 'UserController@register',
             'as' => 'register']

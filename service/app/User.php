@@ -30,6 +30,16 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         'password','token',
     ];
 
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
+
     public function wishes(){
         return $this->hasMany('App\Wish');
     }
