@@ -22,7 +22,13 @@ class WishController extends Controller
     }
 
     public function show($id){
-        $wish = Wish::query()->findOrFail($id);
-        return ['wish' => $wish];
+        $wish = Wish::query()->find($id);
+        if(isset($wish)){
+            return ['wish' => $wish];
+        } else {
+            return ['error' => 'Wish Not Found'];
+        }
     }
+
+
 }
