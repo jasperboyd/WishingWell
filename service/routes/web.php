@@ -15,5 +15,6 @@ $app->get('/', function () use ($app){
     return $app->version();
 });
 
+$app->post('/register/','UserController@register')
 $app->get('/wish/','WishController@index');
 $app->get('/wish/{id}','WishController@show');
